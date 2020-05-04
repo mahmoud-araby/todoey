@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../tasks/TaskList.dart';
 
 import '../constants.dart';
+import '../tasks/TaskList.dart';
 
 class TaskAdd extends StatefulWidget {
   @override
@@ -30,7 +30,7 @@ class _TaskAddState extends State<TaskAdd> {
                 color: Colors.cyan,
                 onPressed: () {
                   Provider.of<TaskList>(context, listen: false)
-                      .addtask(newtask);
+                      .addTask(newtask);
                   Navigator.pop(context);
                 },
                 child: Text(

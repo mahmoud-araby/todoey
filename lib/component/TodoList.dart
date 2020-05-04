@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../tasks/TaskList.dart';
 
 class TodoListView extends StatelessWidget {
@@ -8,25 +9,25 @@ class TodoListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<TaskList>(
-      builder: (context, TaskList, child) {
+      builder: (context, taskList, child) {
         return Dismissible(
-          key: Key(TaskList.gettask(index).title),
+          key: Key(taskList.getTask(index).title),
           onDismissed: (direction) {
-            TaskList.deletetask(index);
+            taskList.deleteTask(index);
           },
           child: ListTile(
             title: Text(
-              TaskList.gettask(index).title,
+              taskList.getTask(index).title,
               style: TextStyle(
-                decoration: TaskList.gettask(index).isdone
+                decoration: taskList.getTask(index).isdone
                     ? TextDecoration.lineThrough
                     : null,
               ),
             ),
             trailing: Checkbox(
-              value: TaskList.gettask(index).isdone,
+              value: taskList.getTask(index).isdone,
               onChanged: (value) {
-                TaskList.updatestatus(index);
+                taskList.updateStatus(index);
               },
             ),
           ),
