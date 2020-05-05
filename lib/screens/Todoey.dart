@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../component/TodoList.dart';
-import '../tasks/TaskList.dart';
 
+import '../component/TodoList.dart';
 import '../constants.dart';
+import '../tasks/TaskList.dart';
 import 'addtask.dart';
 
 class Todoey extends StatefulWidget {
@@ -19,7 +19,7 @@ class _TodoeyState extends State<Todoey> {
     );
   }
 
-  showaddtask() {
+  showAddTask() {
     return showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
@@ -35,7 +35,7 @@ class _TodoeyState extends State<Todoey> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          showaddtask();
+          showAddTask();
         },
       ),
       body: Column(
@@ -59,7 +59,7 @@ class _TodoeyState extends State<Todoey> {
                   style: kmainfont,
                 ),
                 Text(
-                  '${Provider.of<TaskList>(context).getcount()} tasks',
+                  '${Provider.of<TaskList>(context).getCount()} tasks',
                   style: ksecstyle,
                 ),
               ],
@@ -74,7 +74,7 @@ class _TodoeyState extends State<Todoey> {
               ),
               child: ListView.builder(
                 itemBuilder: listBuilder,
-                itemCount: Provider.of<TaskList>(context).getcount(),
+                itemCount: Provider.of<TaskList>(context).getCount(),
               ),
             ),
           )
