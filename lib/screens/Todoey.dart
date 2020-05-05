@@ -19,7 +19,7 @@ class _TodoeyState extends State<Todoey> {
     );
   }
 
-  showaddtask() {
+  showAddTask() {
     return showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
@@ -35,7 +35,7 @@ class _TodoeyState extends State<Todoey> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          showaddtask();
+          showAddTask();
         },
       ),
       body: Column(

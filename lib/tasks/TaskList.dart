@@ -7,7 +7,6 @@ import './Tasks.dart';
 
 class TaskList extends ChangeNotifier {
   SharedPreferences _prefs;
-
   TaskList() {
     initPreference();
   }
@@ -58,9 +57,10 @@ class TaskList extends ChangeNotifier {
       }
       _tasks.add(fineTask);
     });
+    notifyListeners();
   }
 
-  updatePreference() async {
+  updatePreference() {
     List<String> storeData = [];
     String pluses = '';
     _tasks.forEach((data) {
@@ -72,6 +72,6 @@ class TaskList extends ChangeNotifier {
       storeData.add(data.title + pluses);
     });
 
-    await _prefs.setStringList('Tasks', storeData);
+    _prefs.setStringList('Tasks', storeData);
   }
 }
