@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import './screens/Todoey.dart';
 import './tasks/TaskList.dart';
 
@@ -16,6 +17,7 @@ class _MyAppState extends State<MyApp> {
     return ChangeNotifierProvider(
       create: (context) => TaskList(),
       child: MaterialApp(
+        title: "Todo",
         home: Scaffold(body: Todoey()),
       ),
     );
